@@ -17,6 +17,7 @@ WORKDIR /backend
 # コピー
 COPY ./Gemfile /backend/Gemfile
 COPY ./Gemfile.lock /backend/Gemfile.lock
+COPY ./docker-entrypoint.sh /docker-entrypoint.sh
 
 # バンドルインストール
 RUN bundle install --path vendor/bundle
@@ -25,4 +26,4 @@ RUN bundle install --path vendor/bundle
 EXPOSE 3000
 
 # コマンド
-CMD ["bundle exec rails server -b 0.0.0.0"]
+CMD ["/bin/bash", "/docker-entrypoint.sh"]
