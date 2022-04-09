@@ -14,19 +14,20 @@ git clone https://github.com/mshige1979/rails7_sample.git
 docker-compose build
 docker-compose up -d db
 docker-compose run --rm backend bundle install
+
 ```
 
 ### DB
 
 ```
-dokcer-compose run --rm backend bundle exec db:create
-dokcer-compose run --rm backend bundle exec db:migrate
+docker-compose run --rm backend bundle exec rake db:create
+docker-compose run --rm backend bundle exec rake db:migrate
 ```
 
 ### up
 
 ```
-docker-compose up
+docker-compose up -d
 ```
 
 ### destroy
