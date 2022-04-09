@@ -1,24 +1,36 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## setup
 
-Things you may want to cover:
+### git clone
 
-* Ruby version
+```
+git clone https://github.com/mshige1979/rails7_sample.git
+```
 
-* System dependencies
+### build
 
-* Configuration
+```
+docker-compose build
+docker-compose up -d db
+docker-compose run --rm backend bundle install
+```
 
-* Database creation
+### DB
 
-* Database initialization
+```
+dokcer-compose run --rm backend bundle exec db:create
+dokcer-compose run --rm backend bundle exec db:migrate
+```
 
-* How to run the test suite
+### up
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+docker-compose up
+```
 
-* Deployment instructions
+### destroy
 
-* ...
+```
+docker-compose down --rmi all --volumes --remove-orphans
+```
