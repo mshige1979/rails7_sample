@@ -1,5 +1,5 @@
 # イメージ
-FROM ruby:3.1
+FROM ruby:3.1.1
 
 # 環境変数
 ENV TZ Asia/Tokyo
@@ -20,7 +20,8 @@ COPY ./Gemfile.lock /backend/Gemfile.lock
 COPY ./docker-entrypoint.sh /docker-entrypoint.sh
 
 # バンドルインストール
-RUN bundle install --path vendor/bundle
+RUN bundle config set path 'vendor/bundle'
+RUN bundle install
 
 # ポート
 EXPOSE 3000
