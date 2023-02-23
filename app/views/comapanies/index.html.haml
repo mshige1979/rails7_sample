@@ -1,0 +1,21 @@
+%h1 Listing comapanies
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th
+      %th
+      %th
+
+  %tbody
+    - @comapanies.each do |comapany|
+      %tr
+        %td= comapany.name
+        %td= link_to 'Show', comapany
+        %td= link_to 'Edit', edit_comapany_path(comapany)
+        %td= link_to 'Destroy', comapany, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Comapany', new_comapany_path
