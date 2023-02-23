@@ -64,7 +64,13 @@ class ComapaniesController < ApplicationController
     end
 
     # Only allow a list of trusted parameters through.
+    # リクエストパラメータより以下で指定したものをmodelへ連携する（ストロングパラメータ）
     def comapany_params
-      params.require(:comapany).permit(:name)
+      params.require(:comapany).permit(
+        :name,
+        :tel,
+        :address,
+        :invalid_flag,
+      )
     end
 end

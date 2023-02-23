@@ -1,9 +1,12 @@
 %h1 Listing comapanies
 
-%table
+%table.table
   %thead
     %tr
-      %th Name
+      %th 名前
+      %th TEL
+      %th 住所
+      %th 無効
       %th
       %th
       %th
@@ -12,9 +15,12 @@
     - @comapanies.each do |comapany|
       %tr
         %td= comapany.name
+        %td= comapany.tel
+        %td= comapany.address
+        %td= comapany.invalid_flag
         %td= link_to 'Show', comapany
         %td= link_to 'Edit', edit_comapany_path(comapany)
-        %td= link_to 'Destroy', comapany, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= button_to "Destroy", comapany, method: :delete, :class => "button"
 
 %br
 

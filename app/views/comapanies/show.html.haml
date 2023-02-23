@@ -1,8 +1,18 @@
 %p#notice= notice
 
 %p
-  %b Name:
-  = @comapany.name
+  %dt= :name
+  %dd
+    = @comapany.name
+  %dt= :tel
+  %dd
+    = @comapany.tel
+  %dt= :address
+  %dd
+    = @comapany.address
+  %dt= :invalid_flag
+  %dd
+    = @comapany.invalid_flag
 
 = link_to 'Edit', edit_comapany_path(@comapany)
 \|

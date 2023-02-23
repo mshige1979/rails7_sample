@@ -7,7 +7,23 @@
           %li= message
 
   .field
-    = f.label :name
-    = f.text_area :name
+    -# 企業名
+    %dt=f.label :name
+    %dd
+      = f.text_field :name
+    -# TEL
+    %dt=f.label :tel
+    %dd
+      =f.text_field :tel
+    -# 住所
+    %dt=f.label :address
+    %dd
+      =f.text_field :address
+    -# 無効フラグ
+    -if controller.action_name == "edit"
+      %dt=f.label :invalid_flag
+      %dd
+        =f.check_box :invalid_flag
+
   .actions
     = f.submit 'Save'
