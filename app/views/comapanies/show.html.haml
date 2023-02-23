@@ -1,0 +1,19 @@
+%p#notice= notice
+
+%p
+  %dt= :name
+  %dd
+    = @comapany.name
+  %dt= :tel
+  %dd
+    = @comapany.tel
+  %dt= :address
+  %dd
+    = @comapany.address
+  %dt= :invalid_flag
+  %dd
+    = @comapany.invalid_flag
+
+= link_to 'Edit', edit_comapany_path(@comapany)
+\|
+= link_to 'Back', comapanies_path

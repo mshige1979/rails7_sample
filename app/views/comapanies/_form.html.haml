@@ -1,0 +1,29 @@
+= form_for @comapany do |f|
+  - if @comapany.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@comapany.errors.count, "error")} prohibited this comapany from being saved:"
+      %ul
+        - @comapany.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    -# 企業名
+    %dt=f.label :name
+    %dd
+      = f.text_field :name
+    -# TEL
+    %dt=f.label :tel
+    %dd
+      =f.text_field :tel
+    -# 住所
+    %dt=f.label :address
+    %dd
+      =f.text_field :address
+    -# 無効フラグ
+    -if controller.action_name == "edit"
+      %dt=f.label :invalid_flag
+      %dd
+        =f.check_box :invalid_flag
+
+  .actions
+    = f.submit 'Save'
