@@ -13,6 +13,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+    1.times { @post.tags.build }
   end
 
   # GET /posts/1/edit
@@ -65,6 +66,14 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:name)
+      params.require(:post).permit(
+        :name,
+        tags_attributes: [
+          :id,
+          :parent_id,
+          :key,
+          :value,
+        ]
+      )
     end
 end

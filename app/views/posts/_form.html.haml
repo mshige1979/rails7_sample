@@ -1,3 +1,5 @@
+= post.inspect
+= post.tags.inspect
 = form_with(model: post) do |form|
   - if post.errors.any?
     %div{:style => "color: red"}
@@ -10,5 +12,12 @@
   %div
     = form.label :name, style: "display: block"
     = form.text_area :name
+    %div
+      = form.fields_for :tags do |tag|
+        = tag.label :key, style: "display: block"
+        = tag.text_field :key
+        = tag.label :value, style: "display: block"
+        = tag.text_field :value
+  
   %div
     = form.submit
