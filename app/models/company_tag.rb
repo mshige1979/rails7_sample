@@ -1,0 +1,2 @@
+class CompanyTag < Tag
+end

@@ -17,3 +17,10 @@ docker-compose run --rm backend bundle exec rake db:migrate
 docker-compose run --rm backend bundle exec rails generate scaffold Comapany name:text
 docker-compose run --rm backend bundle exec rake db:migrate
 ```
+
+### モデルを作成(#8)
+
+```
+docker-compose run --rm backend bundle exec rails generate model Tag
+docker-compose run --rm backend bundle exec rake db:migrate
+```
